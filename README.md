@@ -1,7 +1,6 @@
 # Awesome Chat Bubble
 
-[![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
-[![License: MIT][license_badge]][license_link]
+[![pub package](https://img.shields.io/pub/v/awesome_side_sheet.svg)](https://pub.dev/publishers/moesaid.com/packages)
 
 A Flutter package that provides a customizable chat bubble widget.
 
@@ -61,6 +60,6 @@ AwesomeChatBubble(
     replayMessage : 'This is a replay message',
     replayToName : 'Replay to name',
     replayIcon : Icons.reply,
-    tailType : TailType.standard or TailType.none or TailType.curved,
+    tailType : TailType.standard or TailType.none
 ),
 ```
