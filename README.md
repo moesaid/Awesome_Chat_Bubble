@@ -60,6 +60,9 @@ AwesomeChatBubble(
     replayMessage : 'This is a replay message',
     replayToName : 'Replay to name',
     replayIcon : Icons.reply,
-    tailType : TailType.standard or TailType.none
+    tailType : TailType.standard or TailType.none,
+    onMore: 'on more function',
+    onMoreIcon: 'on more icon' ,
+    onMoreWidget : 'on more widget',
 ),
 ```
