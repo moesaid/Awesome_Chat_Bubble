@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 /// {@template awesome_chat_bubble}
 /// A Very Good Project created by Very Good CLI.
 /// {@endtemplate}
-class AwesomeChatBubble {
+class AwesomeChatBubbleEntery {
   /// {@macro awesome_chat_bubble}
-  const AwesomeChatBubble();
+  const AwesomeChatBubbleEntery();
 }
 
 /// An enum to determine the type of tail to be displayed on the bubble.
@@ -33,6 +33,9 @@ class ChatBubble extends StatelessWidget {
     this.replayMessage,
     this.replayToName,
     this.replayIcon,
+    this.onMore,
+    this.onMoreIcon,
+    this.onMoreWidget,
     this.tailType = TailType.standard,
   });
 
@@ -62,6 +65,15 @@ class ChatBubble extends StatelessWidget {
 
   /// Replay icon
   final IconData? replayIcon;
+
+  /// on more function
+  final void Function()? onMore;
+
+  /// on more icon
+  final IconData? onMoreIcon;
+
+  /// on more icon widget
+  final Widget? onMoreWidget;
 
   BorderRadius _getBorderRadius() {
     switch (tailType) {
@@ -114,13 +126,34 @@ class ChatBubble extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // author name
-          if (authorName != null)
-            Text(
-              authorName ?? '',
-              style: theme.textTheme.labelSmall
-                  ?.copyWith(fontWeight: FontWeight.bold),
-            ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // author name
+              if (authorName != null)
+                Text(
+                  authorName ?? '',
+                  style: theme.textTheme.labelSmall
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+
+              // Gap
+              if (authorName != null && onMore != null)
+                const SizedBox(width: 5),
+
+              // on more
+              if (onMore != null)
+                InkWell(
+                  onTap: onMore?.call,
+                  child: onMoreWidget ??
+                      Icon(
+                        onMoreIcon ?? Icons.more_horiz,
+                        size: theme.textTheme.titleSmall?.fontSize,
+                        color: theme.colorScheme.primary,
+                      ),
+                ),
+            ],
+          ),
 
           // timestamp
           if (timestamp != null)

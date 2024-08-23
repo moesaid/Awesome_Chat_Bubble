@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('AwesomeChatBubble', () {
     test('can be instantiated', () {
-      expect(AwesomeChatBubble(), isNotNull);
+      expect(ChatBubble(), isNotNull);
     });
   });
 }
